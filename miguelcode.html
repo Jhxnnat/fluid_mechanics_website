@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ejercicios: Tuberías en Serie</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+            padding: 24px;
+            background: #f7f9fc;
+            color: #0f172a
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 6px 18px rgba(12,20,45,0.08)
+        }
+
+        h1 {
+            margin-top: 0
+        }
+
+        .exercise {
+            display: none;
+        }
+
+            .exercise.active {
+                display: block;
+            }
+
+        .controls {
+            margin-top: 12px;
+            display: flex;
+            gap: 8px;
+            align-items: center
+        }
+
+        .feedback {
+            margin-top: 8px;
+            font-weight: 600
+        }
+
+            .feedback.error {
+                color: #b91c1c
+            }
+
+            .feedback.success {
+                color: #0f9d58
+            }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1
+        }
+
+        button {
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 0;
+            cursor: pointer
+        }
+
+            button.primary {
+                background: #2563eb;
+                color: white
+            }
+
+            button.secondary {
+                background: #94a3b8;
+                color: white
+            }
+
+        .solution {
+            margin-top: 10px;
+            background: #f1f5f9;
+            padding: 10px;
+            border-radius: 6px;
+            font-family: monospace
+        }
+
+        .nav {
+            display: flex;
+            gap: 8px;
+            margin-top: 16px
+        }
+
+        .retroalimentacion {
+            background: #f1f5f9;
+            border-left: 4px solid #2563eb;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+            .retroalimentacion h3 {
+                margin-top: 0;
+                color: #1e3a8a
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ejercicios: Tuberías en Serie</h1>
+        <p>Responde las preguntas en los cuadros de texto. Si tu respuesta es correcta, verás la retroalimentación con el proceso completo.</p>
+
+        <div id="exercises">
+            <!-- Ejercicio 1 -->
+            <section class="exercise active" data-index="0" id="ex-0">
+                <h2>Ejercicio 1</h2>
+                <p>Dos tuberías en serie, la primera tiene un caudal Q1 = 5 L/s y la pérdida de carga h1 = 2 m. La segunda tiene pérdida h2 = 3 m. ¿Cuál es la pérdida de carga total h_total?</p>
+                <label for="ans-0">Respuesta (m):</label>
+                <input type="text" id="ans-0" placeholder="Escribe la respuesta numérica">
+                <div class="controls">
+                    <button class="primary" data-action="check">Comprobar</button>
+                    <button class="secondary" data-action="show-solution">Mostrar solución</button>
+                </div>
+                <div class="feedback" id="fb-0" aria-live="polite"></div>
+                <div class="solution" id="sol-0" style="display:none"></div>
+            </section>
+
+            <!-- Ejercicio 2 -->
+            <section class="exercise" data-index="1" id="ex-1">
+                <h2>Ejercicio 2</h2>
+                <p>Para el sistema mostrado, fluye agua a 70°F por tres tramos de tubería de hierro dúctil revestida de diámetros 3", 4" y 6", con longitudes 65, 110 y 185 ft, respectivamente. El caudal es 240.8 gal/min. Determina la diferencia de altura entre los puntos A y B (en ft).</p>
+                <label for="ans-1">Respuesta (ft):</label>
+                <input type="text" id="ans-1" placeholder="Escribe la respuesta numérica">
+                <div class="controls">
+                    <button class="primary" data-action="check">Comprobar</button>
+                    <button class="secondary" data-action="show-solution">Mostrar solución</button>
+                </div>
+                <div class="feedback" id="fb-1" aria-live="polite"></div>
+                <div class="solution" id="sol-1" style="display:none"></div>
+                <div id="retro-1" class="retroalimentacion" style="display:none;"></div>
+            </section>
+
+            <!-- Ejercicio 3 -->
+            <section class="exercise" data-index="2" id="ex-2">
+                <h2>Ejercicio 3</h2>
+                <p>Dos tuberías iguales en serie tienen pérdidas h_each = 4 m cada una. ¿Cuál es la pérdida total?</p>
+                <label for="ans-2">Respuesta (m):</label>
+                <input type="text" id="ans-2" placeholder="Escribe la respuesta numérica">
+                <div class="controls">
+                    <button class="primary" data-action="check">Comprobar</button>
+                    <button class="secondary" data-action="show-solution">Mostrar solución</button>
+                </div>
+                <div class="feedback" id="fb-2" aria-live="polite"></div>
+                <div class="solution" id="sol-2" style="display:none"></div>
+            </section>
+        </div>
+
+        <div class="nav">
+            <button id="prev">Anterior</button>
+            <button id="next">Siguiente</button>
+            <div style="flex:1"></div>
+            <button id="reset">Reiniciar</button>
+        </div>
+    </div>
+
+    <script>const problems = [
+      { answer: 5, solution: 'Suma simple: h_total = h1 + h2 = 2 + 3 = 5 m' },
+      { answer: 21.92, solution: 'zA - zB = Σhf + Σhm + (VB² - VA²)/2g = 21.92 ft' },
+      { answer: 8, solution: 'h_total = 4 + 4 = 8 m' }
+    ];
+
+    let current = 0;
+    const exerciseEls = document.querySelectorAll('.exercise');
+
+    function showExercise(index) {
+      exerciseEls.forEach((el,i) => el.classList.toggle('active', i === index));
+      current = index;
+    }
+
+    document.getElementById('prev').addEventListener('click', () => showExercise(Math.max(0, current - 1)));
+    document.getElementById('next').addEventListener('click', () => showExercise(Math.min(exerciseEls.length - 1, current + 1)));
+
+    document.getElementById('reset').addEventListener('click', () => {
+      exerciseEls.forEach((el,i) => {
+        document.getElementById('ans-' + i).value = '';
+        document.getElementById('fb-' + i).textContent = '';
+        document.getElementById('fb-' + i).className = 'feedback';
+        document.getElementById('sol-' + i).style.display = 'none';
+        const retro = document.getElementById('retro-' + i);
+        if (retro) retro.style.display = 'none';
+      });
+      showExercise(0);
+    });
+
+    document.getElementById('exercises').addEventListener('click', (e) => {
+      const action = e.target.getAttribute('data-action');
+      if (!action) return;
+      const section = e.target.closest('.exercise');
+      const idx = Number(section.getAttribute('data-index'));
+      if (action === 'check') checkAnswer(idx);
+      else if (action === 'show-solution') showSolution(idx);
+    });
+
+    function normalizeNumberInput(val) {
+      if (val === null || val === undefined) return NaN;
+      return Number(String(val).trim().replace(',', '.'));
+    }
+
+    function checkAnswer(i) {
+      const input = document.getElementById('ans-' + i);
+      const fb = document.getElementById('fb-' + i);
+      const sol = document.getElementById('sol-' + i);
+      const retro = document.getElementById('retro-' + i);
+      const userVal = normalizeNumberInput(input.value);
+      const correct = problems[i].answer;
+
+      if (Number.isNaN(userVal)) {
+        fb.textContent = 'Por favor ingresa un número válido.';
+        fb.className = 'feedback error';
+        sol.style.display = 'none';
+        if (retro) retro.style.display = 'none';
+        return;
+      }
+
+      const tol = 0.05; // tolerancia
+      if (Math.abs(userVal - correct) <= tol) {
+        fb.textContent = '✅ Correcto';
+        fb.className = 'feedback success';
+        sol.style.display = 'none';
+        if (i === 1 && retro) {
+          retro.style.display = 'block';
+          retro.innerHTML = `
+            <h3>Retroalimentación</h3>
+            <p>Aplicando la ecuación de energía entre los puntos <strong>A</strong> y <strong>B</strong>:</p>
+            <p style="margin-left:20px;">z<sub>A</sub> - z<sub>B</sub> = Σh<sub>f</sub> + Σh<sub>m</sub> + (V<sub>B</sub><sup>2</sup> - V<sub>A</sub><sup>2</sup>)/2g</p>
+            <p>Donde:</p>
+            <ul>
+              <li>h<sub>f</sub>: pérdidas por fricción (Darcy–Weisbach)</li>
+              <li>h<sub>m</sub>: pérdidas menores (entrada y contracciones)</li>
+            </ul>
+            <p>Datos: Q = 240.8 gal/min = 0.538 ft³/s, D₁ = 3", D₂ = 4", D₃ = 6", L₁ = 65 ft, L₂ = 110 ft, L₃ = 185 ft, ε = 0.00085 ft</p>
+            <p>Velocidades: V₁ = 10.97 ft/s, V₂ = 6.18 ft/s, V₃ = 2.74 ft/s</p>
+            <p>Coeficientes de fricción: f₁ = 0.0209, f₂ = 0.0216, f₃ = 0.0227</p>
+            <p>Pérdidas por fricción: h<sub>f1</sub> = 2.55 ft, h<sub>f2</sub> = 2.52 ft, h<sub>f3</sub> = 2.31 ft</p>
+            <p>Pérdidas menores: 0.94 + 0.15 + 2.18 = 3.27 ft</p>
+            <p>Total: z<sub>A</sub> - z<sub>B</sub> = 21.92 ft</p>
+            <p style="font-weight:bold; color:#1e3a8a;">Por lo tanto, la diferencia de altura entre los puntos A y B es de 21.92 ft.</p>
+          `;
+        }
+      } else {
+        fb.textContent = '❌ Incorrecto';
+        fb.className = 'feedback error';
+        sol.textContent = problems[i].solution + ' (Respuesta correcta: ' + correct + ')';
+        sol.style.display = 'block';
+        if (retro) retro.style.display = 'none';
+      }
+    }
+
+    function showSolution(i) {
+      const sol = document.getElementById('sol-' + i);
+      sol.textContent = problems[i].solution + ' (Respuesta correcta: ' + problems[i].answer + ')';
+      sol.style.display = 'block';
+      const fb = document.getElementById('fb-' + i);
+      fb.textContent = 'Se mostró la solución.';
+      fb.className = 'feedback';
+    }
+
+    problems.forEach((p, i) => {
+      const sol = document.getElementById('sol-' + i);
+      sol.textContent = '';
+    });</script>
+</body>
+</html>
