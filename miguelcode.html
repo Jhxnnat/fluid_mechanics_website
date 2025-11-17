@@ -29,9 +29,9 @@
             display: none;
         }
 
-            .exercise.active {
-                display: block;
-            }
+        .exercise.active {
+            display: block;
+        }
 
         .controls {
             margin-top: 12px;
@@ -45,13 +45,13 @@
             font-weight: 600
         }
 
-            .feedback.error {
-                color: #b91c1c
-            }
+        .feedback.error {
+            color: #b91c1c
+        }
 
-            .feedback.success {
-                color: #0f9d58
-            }
+        .feedback.success {
+            color: #0f9d58
+        }
 
         input[type="text"], textarea {
             width: 100%;
@@ -67,15 +67,15 @@
             cursor: pointer
         }
 
-            button.primary {
-                background: #2563eb;
-                color: white
-            }
+        button.primary {
+            background: #2563eb;
+            color: white
+        }
 
-            button.secondary {
-                background: #94a3b8;
-                color: white
-            }
+        button.secondary {
+            background: #94a3b8;
+            color: white
+        }
 
         .solution {
             margin-top: 10px;
@@ -99,10 +99,10 @@
             margin-top: 10px;
         }
 
-            .retroalimentacion h3 {
-                margin-top: 0;
-                color: #1e3a8a
-            }
+        .retroalimentacion h3 {
+            margin-top: 0;
+            color: #1e3a8a
+        }
     </style>
 </head>
 <body>
@@ -111,24 +111,33 @@
         <p>Responde las preguntas en los cuadros de texto. Si tu respuesta es correcta, verás la retroalimentación con el proceso completo.</p>
 
         <div id="exercises">
+
             <!-- Ejercicio 1 -->
             <section class="exercise active" data-index="0" id="ex-0">
                 <h2>Ejercicio 1</h2>
-                <p>Para el sistema mostrado en la figura fluye agua a <input type="number" id="temperature" placeholder="Insertar T" min="32" max="212" style="width: 90px; height: 20px ;font-size: 16px;"> °F 
-                    por una tuberia de hierro ductil revestida cuyos diametros son <input type="number" id="diametro_1" placeholder="diametro 1" min="3" max="25" style="width: 90px; height: 20px ;font-size: 16px;"> , <input type="number" id="diametro_2" placeholder="diametro 2" min="3" max="25" style="width: 90px; height: 20px ;font-size: 16px;"> y
-                    <input type="number" id="diametro_3" placeholder="diametro 3" min="3" max="25" style="width: 90px; height: 20px ;font-size: 16px;"> pulgadas, con longitud igual a <input type="number" id="longitud_1" placeholder="longitud 1" min="0" style="width: 90px; height: 20px ;font-size: 16px;">,
+                <p>Para el sistema mostrado en la figura fluye agua a 
+                <input type="number" id="temperature" placeholder="Insertar T" min="32" max="212" style="width: 90px; height: 20px ;font-size: 16px;"> °F 
+                    por una tuberia de hierro ductil revestida cuyos diametros son 
+                    <input type="number" id="diametro_1" placeholder="diametro 1" min="3" max="25" style="width: 90px; height: 20px ;font-size: 16px;"> , 
+                    <input type="number" id="diametro_2" placeholder="diametro 2" min="3" max="25" style="width: 90px; height: 20px ;font-size: 16px;"> y
+                    <input type="number" id="diametro_3" placeholder="diametro 3" min="3" max="25" style="width: 90px; height: 20px ;font-size: 16px;"> pulgadas, con longitud igual a 
+                    <input type="number" id="longitud_1" placeholder="longitud 1" min="0" style="width: 90px; height: 20px ;font-size: 16px;">,
                     <input type="number" id="longitud_2" placeholder="longitud 2" min="0" style="width: 90px; height: 20px ;font-size: 16px;">
-                    y <input type="number" id="longitud_3" placeholder="longitud 3" min="0" style="width: 90px; height: 20px ;font-size: 16px;"> pies, respectivamente. se sabe que el caudal es de <input type="number" id="caudal_ej1" placeholder="caudal" style="width: 90px; height: 20px ;font-size: 16px;"> galones por minuto. Determine la diferencia de altura entre los puntos A y B. Las contracciones son súbitas.</p>
-                <img src="d1.png" alt="Image" height="300" width="600">
-                
+                    y 
+                    <input type="number" id="longitud_3" placeholder="longitud 3" min="0" style="width: 90px; height: 20px ;font-size: 16px;"> pies, respectivamente. 
+                    Se sabe que el caudal es de <input type="number" id="caudal_ej1" placeholder="caudal" style="width: 90px; height: 20px ;font-size: 16px;"> gal/min. Determine la diferencia de altura entre los puntos A y B. Las contracciones son súbitas.
+                </p>
 
-                <label for="ans-0">Respuesta (m):</label>
+                <img src="d1.png" alt="Image" height="300" width="600">
+
+                <label for="ans-0">Respuesta (ft):</label>
                 <input type="text" id="ans-0" placeholder="Escribe la respuesta numérica">
-                <button id="comprobar2" >Comprobar 2</button>
+
                 <div class="controls">
                     <button class="primary" data-action="check">Comprobar</button>
                     <button class="secondary" data-action="show-solution">Mostrar solución</button>
                 </div>
+
                 <div class="feedback" id="fb-0" aria-live="polite"></div>
                 <div class="solution" id="sol-0" style="display:none"></div>
             </section>
@@ -136,15 +145,18 @@
             <!-- Ejercicio 2 -->
             <section class="exercise" data-index="1" id="ex-1">
                 <h2>Ejercicio 2</h2>
-                <p>Para el sistema mostrado, fluye agua a 70°F por tres tramos de tubería de hierro dúctil revestida de diámetros 3", 4" y 6", con longitudes 65, 110 y 185 ft, respectivamente. El caudal es 240.8 gal/min. Determina la diferencia de altura entre los puntos A y B (en ft).</p>
+                <p>Para el sistema mostrado, fluye agua a 70°F por tres tramos de tubería de hierro dúctil revestida de diámetros 3", 4" y 6", con longitudes 65, 110 y 185 ft, respectivamente. El caudal es 240.8 gal/min.</p>
                 <img src="pag1.jpg" alt="Image" height="200" width="500">
+
                 <label for="ans-1">Respuesta (ft):</label>
                 <input type="text" id="ans-1" placeholder="Escribe la respuesta numérica">
+
                 <div class="controls">
                     <button class="primary" data-action="check">Comprobar</button>
                     <button class="secondary" data-action="show-solution">Mostrar solución</button>
                 </div>
-                <div class="feedback" id="fb-1" aria-live="polite"></div>
+
+                <div class="feedback" id="fb-1"></div>
                 <div class="solution" id="sol-1" style="display:none"></div>
                 <div id="retro-1" class="retroalimentacion" style="display:none;"></div>
             </section>
@@ -153,15 +165,19 @@
             <section class="exercise" data-index="2" id="ex-2">
                 <h2>Ejercicio 3</h2>
                 <p>Dos tuberías iguales en serie tienen pérdidas h_each = 4 m cada una. ¿Cuál es la pérdida total?</p>
+
                 <label for="ans-2">Respuesta (m):</label>
                 <input type="text" id="ans-2" placeholder="Escribe la respuesta numérica">
+
                 <div class="controls">
                     <button class="primary" data-action="check">Comprobar</button>
                     <button class="secondary" data-action="show-solution">Mostrar solución</button>
                 </div>
-                <div class="feedback" id="fb-2" aria-live="polite"></div>
+
+                <div class="feedback" id="fb-2"></div>
                 <div class="solution" id="sol-2" style="display:none"></div>
             </section>
+
         </div>
 
         <div class="nav">
@@ -170,361 +186,282 @@
             <div style="flex:1"></div>
             <button id="reset">Reiniciar</button>
         </div>
+
     </div>
-    <!-- Respuestas-->>
-    
 
-    <script>
-    // algunas constantes
-    const temperaturasSI = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100];
-    const p_especificoSI = [9.81, 9.81, 9.81, 9.81, 9.79, 9.78, 9.77, 9.75, 9.73, 9.71, 9.69, 9.67, 9.65, 9.62, 9.59, 9.56, 9.53, 9.50, 9.47, 9.44, 9.40];
-    const densidadSI = [1000, 1000, 1000, 1000, 998, 997, 996, 994, 992, 990, 988, 986, 984, 981, 978, 975, 971, 968, 965, 962, 958];
-    const v_cinematicaSI = [1.75e-6, 1.52e-6, 1.30e-6, 1.15e-6, 1.02e-6, 8.94e-7, 8.03e-7, 7.22e-7, 6.56e-7, 6.00e-7, 5.48e-7, 5.05e-7, 4.67e-7, 4.39e-7, 4.11e-7, 3.83e-7, 3.60e-7, 3.41e-7, 3.22e-7, 3.04e-7, 2.94e-7];
+<script>
+/* -------------------------
+   TODAS las CONSTANTES
+------------------------- */
+const temperaturasSI = [0,5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100];
+const p_especificoSI = [9.81,9.81,9.81,9.81,9.79,9.78,9.77,9.75,9.73,9.71,9.69,9.67,9.65,9.62,9.59,9.56,9.53,9.50,9.47,9.44,9.40];
+const densidadSI = [1000,1000,1000,1000,998,997,996,994,992,990,988,986,984,981,978,975,971,968,965,962,958];
+const v_cinematicaSI = [1.75e-6,1.52e-6,1.30e-6,1.15e-6,1.02e-6,8.94e-7,8.03e-7,7.22e-7,6.56e-7,6.00e-7,5.48e-7,5.05e-7,4.67e-7,4.39e-7,4.11e-7,3.83e-7,3.60e-7,3.41e-7,3.22e-7,3.04e-7,2.94e-7];
 
-    const temperaturasIN = [32, 40, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 212];
-    const p_especificoIN = [62.4, 62.4, 62.4, 62.4, 62.3, 62.2, 62.1, 62.0, 61.9, 61.7, 61.5, 61.4, 61.2, 61.0, 60.8, 60.6, 60.4, 60.1, 59.8];
-    const densidadIN = [1.94, 1.94, 1.94, 1.94, 1.94, 1.93, 1.93, 1.93, 1.92, 1.92, 1.91, 1.91, 1.90, 1.90, 1.89, 1.88, 1.88, 1.87, 1.86];
-    const v_cinematicaIN = [1.89e-5, 1.67e-5, 1.40e-5, 1.21e-5, 1.05e-5, 9.15e-6, 8.29e-6, 7.37e-6, 6.55e-6, 5.94e-6, 5.49e-6, 5.03e-6, 4.68e-6, 4.38e-6, 4.07e-6, 3.84e-6, 3.62e-6, 3.35e-6, 3.17e-6];
-    const g = 32.17;
-    const rug_HDR_IN = 0.0004
-    // Listas de coeficientes de resistencia agrupados por velocidad en pies/s (D/D₀)
-    const K_contraccion = {
-  "2_pies_s":  [0.00, 0.03, 0.07, 0.17, 0.26, 0.34, 0.38, 0.40, 0.42, 0.44, 0.47, 0.48, 0.49],
-  "4_pies_s":  [0.00, 0.04, 0.07, 0.17, 0.26, 0.34, 0.37, 0.40, 0.42, 0.44, 0.46, 0.47, 0.48],
-  "6_pies_s":  [0.00, 0.04, 0.07, 0.17, 0.26, 0.34, 0.37, 0.39, 0.41, 0.43, 0.45, 0.47, 0.48],
-  "8_pies_s":  [0.00, 0.04, 0.08, 0.18, 0.26, 0.33, 0.36, 0.39, 0.40, 0.42, 0.44, 0.45, 0.47],
-  "10_pies_s": [0.00, 0.05, 0.08, 0.18, 0.26, 0.33, 0.36, 0.38, 0.40, 0.42, 0.45, 0.46, 0.47],
-  "15_pies_s": [0.00, 0.05, 0.08, 0.18, 0.25, 0.32, 0.34, 0.37, 0.38, 0.40, 0.45, 0.45, 0.47],
-  "20_pies_s": [0.00, 0.05, 0.09, 0.18, 0.25, 0.31, 0.33, 0.35, 0.37, 0.39, 0.46, 0.47, 0.47],
-  "30_pies_s": [0.00, 0.06, 0.10, 0.19, 0.25, 0.29, 0.32, 0.33, 0.34, 0.36, 0.46, 0.47, 0.40],
-  "40_pies_s": [0.00, 0.06, 0.11, 0.20, 0.24, 0.27, 0.29, 0.30, 0.31, 0.33, 0.38, 0.40, 0.38]
+const temperaturasIN = [32,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200,212];
+const p_especificoIN = [62.4,62.4,62.4,62.4,62.3,62.2,62.1,62.0,61.9,61.7,61.5,61.4,61.2,61.0,60.8,60.6,60.4,60.1,59.8];
+const densidadIN = [1.94,1.94,1.94,1.94,1.94,1.93,1.93,1.93,1.92,1.92,1.91,1.91,1.90,1.90,1.89,1.88,1.88,1.87,1.86];
+const v_cinematicaIN = [1.89e-5,1.67e-5,1.40e-5,1.21e-5,1.05e-5,9.15e-6,8.29e-6,7.37e-6,6.55e-6,5.94e-6,5.49e-6,5.03e-6,4.68e-6,4.38e-6,4.07e-6,3.84e-6,3.62e-6,3.35e-6,3.17e-6];
+
+const g = 32.17;
+const rug_HDR_IN = 0.0004;
+
+const K_contraccion = {
+  "2_pies_s":[0.00,0.03,0.07,0.17,0.26,0.34,0.38,0.40,0.42,0.44,0.47,0.48,0.49],
+  "4_pies_s":[0.00,0.04,0.07,0.17,0.26,0.34,0.37,0.40,0.42,0.44,0.46,0.47,0.48],
+  "6_pies_s":[0.00,0.04,0.07,0.17,0.26,0.34,0.37,0.39,0.41,0.43,0.45,0.47,0.48],
+  "8_pies_s":[0.00,0.04,0.08,0.18,0.26,0.33,0.36,0.39,0.40,0.42,0.44,0.45,0.47],
+  "10_pies_s":[0.00,0.05,0.08,0.18,0.26,0.33,0.36,0.38,0.40,0.42,0.45,0.46,0.47],
+  "15_pies_s":[0.00,0.05,0.08,0.18,0.25,0.32,0.34,0.37,0.38,0.40,0.45,0.45,0.47],
+  "20_pies_s":[0.00,0.05,0.09,0.18,0.25,0.31,0.33,0.35,0.37,0.39,0.46,0.47,0.47],
+  "30_pies_s":[0.00,0.06,0.10,0.19,0.25,0.29,0.32,0.33,0.34,0.36,0.46,0.47,0.40],
+  "40_pies_s":[0.00,0.06,0.11,0.20,0.24,0.27,0.29,0.30,0.31,0.33,0.38,0.40,0.38]
 };
-    const claves = [
-  "2_pies_s",
-  "4_pies_s",
-  "6_pies_s",
-  "8_pies_s",
-  "10_pies_s",
-  "15_pies_s",
-  "20_pies_s",
-  "30_pies_s",
-  "40_pies_s"
-];
-    const claves_value = [2, 4, 6, 8, 10, 15, 20, 30, 40]
-    const D1_D2 = [1.0, 1.1, 1.2, 1.4, 1.6, 1.8, 2.0, 2.2, 2.5, 3.0, 4.0, 5.0, 10.0];
-    // Desarrollo pregunta 1
-    // Velocidad para cada sección
-// Variables
-// Asegurarse de que el DOM esté cargado
-document.addEventListener('DOMContentLoaded', function() {
-    // Variables
-    let Q_ej1, d1_ej1, d2_ej1, d3_ej1, T, longitud_1, longitud2, longitud3;
 
-    // Seleccionar botón
-    const botonComprobar = document.getElementById('comprobar2');
-    if (!botonComprobar) {
-        console.error('No se encontró el botón con id="comprobar2"');
+const claves = ["2_pies_s","4_pies_s","6_pies_s","8_pies_s","10_pies_s","15_pies_s","20_pies_s","30_pies_s","40_pies_s"];
+const claves_value = [2,4,6,8,10,15,20,30,40];
+const D1_D2 = [1.0,1.1,1.2,1.4,1.6,1.8,2.0,2.2,2.5,3.0,4.0,5.0,10.0];
+let Za_correct = null;
+/* -------------------------
+   Funciones auxiliares
+------------------------- */
+function velocity(caudal, d1, d2, d3){
+    let v1 = caudal*0.00222801 / (((d1/12)**2)*Math.PI/4);
+    let v2 = caudal*0.00222801 / (((d2/12)**2)*Math.PI/4);
+    let v3 = caudal*0.00222801 / (((d3/12)**2)*Math.PI/4);
+    return {v1, v2, v3};
+}
+
+function subindice_inferior(lista, valor){
+    if (valor < lista[0]) return 0;
+    for (let i=0;i<lista.length;i++){
+        if (lista[i] > valor) return i-1;
+        if (lista[i] === valor) return i;
+    }
+    return lista.length - 1;
+}
+
+function subindice_superior(lista, valor){
+    if (valor <= lista[0]) return 0;
+    for (let i=0;i<lista.length;i++){
+        if (lista[i] >= valor) return i;
+    }
+    return lista.length - 1;
+}
+
+function interpolacion(x0,y0,x1,y1,x){
+    if (y0 === y1) return y0;
+    return y0 + ((y1-y0)/(x1-x0))*(x-x0);
+}
+
+function factorf(d, Re){
+    if (Re < 2000) return 64/Re;
+    return 0.25 / (Math.log10(rug_HDR_IN/(3.7*(d/12)) + 5.74/(Re**0.9))**2);
+}
+
+function losses(f, L, v, d){
+    return f * (L/(d/12)) * (v**2/(2*g));
+}
+
+function contractionlosses(k, v){
+    return k*(v**2)/(2*g);
+}
+
+/* ---------------------------------------------------------
+  FUNCIÓN EJECUTAR EJERCICIO 1 
+--------------------------------------------------------- */
+function ejecutarEj1(){
+    let Q_ej1 = parseFloat(document.getElementById('caudal_ej1').value);
+    let d1 = parseFloat(document.getElementById('diametro_1').value);
+    let d2 = parseFloat(document.getElementById('diametro_2').value);
+    let d3 = parseFloat(document.getElementById('diametro_3').value);
+    let T = parseFloat(document.getElementById('temperature').value);
+    let L1 = parseFloat(document.getElementById('longitud_1').value);
+    let L2 = parseFloat(document.getElementById('longitud_2').value);
+    let L3 = parseFloat(document.getElementById('longitud_3').value);
+
+    if (isNaN(Q_ej1)||isNaN(d1)||isNaN(d2)||isNaN(d3)||T<32||d1<d2||d2<d3){
+        alert("Datos inválidos.");
         return;
     }
 
-    // Evento del botón
-    botonComprobar.addEventListener('click', function() {
-        console.log('Botón clicado'); // Para depuración
+    const velocidades = velocity(Q_ej1, d1, d2, d3);
 
-        // Obtener valores
-        Q_ej1 = parseFloat(document.getElementById('caudal_ej1').value);
-        d1_ej1 = parseFloat(document.getElementById('diametro_1').value);
-        d2_ej1 = parseFloat(document.getElementById('diametro_2').value);
-        d3_ej1 = parseFloat(document.getElementById('diametro_3').value);
-        T = parseFloat(document.getElementById('temperature').value);
-        longitud1 = parseFloat(document.getElementById('longitud_1').value);
-        longitud2 = parseFloat(document.getElementById('longitud_2').value);
-        longitud3 = parseFloat(document.getElementById('longitud_3').value);
-        // Validar
+    let si = subindice_inferior(temperaturasIN, T);
+    let ss = subindice_superior(temperaturasIN, T);
 
-        if (isNaN(Q_ej1) || isNaN(d1_ej1) || isNaN(d2_ej1) || isNaN(d3_ej1) || d1_ej1 <= 0 || d2_ej1 <= 0 || d3_ej1 <= 0 || T < 32 || d1_ej1 < d2_ej1 || d2_ej1 <d3_ej1 ){
-            alert('Por favor, ingresa números válidos, diámetros mayores a 0 , el diametro 1 debese ser mayor al 2 y el 2 mayor al 3 y la temperaturas entre 32 y 212 °F');
-            return;
-        }
+    let vis_inf = v_cinematicaIN[si];
+    let vis_sup = v_cinematicaIN[ss];
+    let T_inf = temperaturasIN[si];
+    let T_sup = temperaturasIN[ss];
 
-        // Calcular velocidades
-        const velocidades = velocity(Q_ej1,d1_ej1,d2_ej1,d3_ej1);
+    let visc;
+    if (T_inf===T_sup) visc = vis_inf;
+    else visc = vis_inf + ((vis_sup-vis_inf)/(T_sup-T_inf))*(T-T_inf);
 
-        // Mostrar vis_inf
-        let sub_inferior_temperatura = subindice_inferior(temperaturasIN,T);
-        let sub_superior_temperatura = subindice_superior(temperaturasIN, T);
-        T_inf = temperaturasIN[sub_inferior_temperatura];
-        T_sup = temperaturasIN[sub_superior_temperatura];
-        vis_inf = v_cinematicaIN[sub_inferior_temperatura];
-        vis_sup = v_cinematicaIN[sub_superior_temperatura];
-        
-        // Interpolación para hallar la viscodidad cinemática aproximada
-        let viscosidad_aprox;
+    let r1 = d1/d2;
+    let r2 = d2/d3;
 
-        if (T_inf == T_sup){
-            viscosidad_aprox = vis_inf;
-        }
-            else{
-                viscosidad_aprox = vis_inf + ((vis_sup-vis_inf)/(T_sup-T_inf)*(T-T_inf));
-        }
-        
-        // Necesario para las K : d1/d2 y velocidad final
-        let r1 = d1_ej1/d2_ej1;     // razon diametro d1/d2
-        let r2 = d2_ej1/d3_ej1;     // razon diametro d2/d3
-        const velocidad_1 = velocidades.v1;
-        const velocidad_2 = velocidades.v2;
-        const velocidad_3 = velocidades.v3;
+    const v1 = velocidades.v1;
+    const v2 = velocidades.v2;
+    const v3 = velocidades.v3;
 
-        // Cálculo de la primera K
+    let si_v2 = subindice_inferior(claves_value, v2);
+    let ss_v2 = subindice_superior(claves_value, v2);
 
-        let sub_inferior_velocidad2 = subindice_inferior(claves_value,velocidad_2 );      // Subindice inferior de velocidad
-        let sub_superior_velocidad2 = subindice_superior(claves_value, velocidad_2);      // Subindice superior de velocidad
+    let si_rA = subindice_inferior(D1_D2, r1);
+    let ss_rA = subindice_superior(D1_D2, r1);
 
-        let sub_inferior_rdiametroA = subindice_inferior(D1_D2,r1)                  // Subindice inferior de razon de diametros
-        let sub_superior_rdiametroA = subindice_superior(D1_D2,r1)                 // Subindice superior de razon de diametros
+    let K1_i_i = K_contraccion[claves[si_v2]][si_rA];
+    let K1_s_i = K_contraccion[claves[ss_v2]][ss_rA];
 
-        let K1_inferior_izq = K_contraccion[claves[sub_inferior_velocidad2]][sub_inferior_rdiametroA];        // Definir K inferior lado izquierdo
-        let K1_superior_izq = K_contraccion[claves[sub_superior_velocidad2]][sub_superior_rdiametroA];        // Definir K superior lado izquierdo
-        
-        let K1_inferior_derecho =  K_contraccion[claves[sub_inferior_velocidad2+1]][sub_inferior_rdiametroA]; // Definir K inferior lado derecho
-        let K1_superior_derecho =  K_contraccion[claves[sub_superior_velocidad2+1]][sub_superior_rdiametroA]; // Definir K superior lado derecho
-        // interpolando k1
+    let K1_i_d = K_contraccion[claves[Math.min(si_v2+1,claves.length-1)]][si_rA];
+    let K1_s_d = K_contraccion[claves[Math.min(ss_v2+1,claves.length-1)]][ss_rA];
 
-        let K1_interpolado_inf = interpolacion(claves_value[sub_inferior_velocidad2],K1_inferior_izq,claves_value[sub_inferior_velocidad2 + 1], K1_inferior_derecho, velocidad_2); // Interpolación 1
-        let K1_interpolado_sup = interpolacion(claves_value[sub_superior_velocidad2],K1_superior_izq,claves_value[sub_superior_velocidad2 + 1], K1_superior_derecho, velocidad_2); // Interpoalción 2
-        let k1_final = interpolacion(D1_D2[sub_inferior_rdiametroA],K1_interpolado_inf,D1_D2[sub_superior_rdiametroA], K1_interpolado_sup,r1 )
+    let K1_inf = interpolacion(claves_value[si_v2],K1_i_i,claves_value[Math.min(si_v2+1,claves.length-1)],K1_i_d,v2);
+    let K1_sup = interpolacion(claves_value[ss_v2],K1_s_i,claves_value[Math.min(ss_v2+1,claves.length-1)],K1_s_d,v2);
+    let K1 = interpolacion(D1_D2[si_rA],K1_inf,D1_D2[ss_rA],K1_sup,r1);
 
-        // Cálculo de la segunda K
-        let sub_inferior_velocidad3 = subindice_inferior(claves_value,velocidad_3 );      // Subindice inferior de velocidad
-        let sub_superior_velocidad3 = subindice_superior(claves_value, velocidad_3);      // Subindice superior de velocidad
+    /* ---- K2 ---- */
+    let si_v3 = subindice_inferior(claves_value, v3);
+    let ss_v3 = subindice_superior(claves_value, v3);
 
-        let sub_inferior_rdiametroB = subindice_inferior(D1_D2,r2)                  // Subindice inferior de razon de diametros
-        let sub_superior_rdiametroB = subindice_superior(D1_D2,r2)                 // Subindice superior de razon de diametros
+    let si_rB = subindice_inferior(D1_D2, r2);
+    let ss_rB = subindice_superior(D1_D2, r2);
 
-        let K2_inferior_izq = K_contraccion[claves[sub_inferior_velocidad3]][sub_inferior_rdiametroB];        // Definir K inferior lado izquierdo
-        let K2_superior_izq = K_contraccion[claves[sub_superior_velocidad3]][sub_superior_rdiametroB];        // Definir K superior lado izquierdo
-        
-        let K2_inferior_derecho =  K_contraccion[claves[sub_inferior_velocidad3+1]][sub_inferior_rdiametroB]; // Definir K inferior lado derecho
-        let K2_superior_derecho =  K_contraccion[claves[sub_superior_velocidad3+1]][sub_superior_rdiametroB]; // Definir K superior lado derecho
-        // interpolando k1
+    let K2_i_i = K_contraccion[claves[si_v3]][si_rB];
+    let K2_s_i = K_contraccion[claves[ss_v3]][ss_rB];
 
-        let K2_interpolado_inf = interpolacion(claves_value[sub_inferior_velocidad3],K2_inferior_izq,claves_value[sub_inferior_velocidad3 + 1], K2_inferior_derecho, velocidad_3); // Interpolación 1
-        let K2_interpolado_sup = interpolacion(claves_value[sub_superior_velocidad3],K2_superior_izq,claves_value[sub_superior_velocidad3 + 1], K2_superior_derecho, velocidad_3); // Interpoalción 2
-        let k2_final = interpolacion(D1_D2[sub_inferior_rdiametroB],K2_interpolado_inf,D1_D2[sub_superior_rdiametroB], K2_interpolado_sup,r2 )
+    let K2_i_d = K_contraccion[claves[Math.min(si_v3+1,claves.length-1)]][si_rB];
+    let K2_s_d = K_contraccion[claves[Math.min(ss_v3+1,claves.length-1)]][ss_rB];
 
-        // Hallando Reynolds
-        const Reynolds_seccion1 = velocidad_1 * (d1_ej1/12) / viscosidad_aprox;
-        const Reynolds_seccion2 = velocidad_2 * (d2_ej1/12) / viscosidad_aprox;
-        const Reynolds_seccion3 = velocidad_3 * (d3_ej1/12) / viscosidad_aprox;
+    let K2_inf = interpolacion(claves_value[si_v3],K2_i_i,claves_value[Math.min(si_v3+1,claves.length-1)],K2_i_d,v3);
+    let K2_sup = interpolacion(claves_value[ss_v3],K2_s_i,claves_value[Math.min(ss_v3+1,claves.length-1)],K2_s_d,v3);
+    let K2 = interpolacion(D1_D2[si_rB],K2_inf,D1_D2[ss_rB],K2_sup,r2);
 
-        // Hallando factores de fricción
-        const f1 = factorf(d1_ej1, Reynolds_seccion1);
-        const f2 = factorf(d2_ej1, Reynolds_seccion2);
-        const f3 = factorf(d3_ej1, Reynolds_seccion3);
+    let Re1 = v1*(d1/12)/visc;
+    let Re2 = v2*(d2/12)/visc;
+    let Re3 = v3*(d3/12)/visc;
 
-        // Hallando perdidas en tramos rectos
-        const perdida1 = losses(f1, longitud1, velocidad_1, d1_ej1);
-        const perdida2 = losses(f2, longitud2, velocidad_2, d2_ej1);
-        const perdida3 = losses(f3, longitud3, velocidad_3, d3_ej1);
+    let f1 = factorf(d1, Re1);
+    let f2 = factorf(d2, Re2);
+    let f3 = factorf(d3, Re3);
 
-        // Hallando pérdidas debido a contracciones súbitas
+    let h1 = losses(f1, L1, v1, d1);
+    let h2 = losses(f2, L2, v2, d2);
+    let h3 = losses(f3, L3, v3, d3);
 
-        const hc1 = contractionlosses(k1_final, velocidad_2);
-        const hc2 = contractionlosses(k2_final, velocidad_3);
+    let hc1 = contractionlosses(K1, v2);
+    let hc2 = contractionlosses(K2, v3);
 
-        // Hallando carga de velocidad en B
-        const velocity_head = (velocidad_3**2)/(2*g);
-        
-        // Hallando las diferencias de alturas
-        const Za = perdida1 + perdida2 + perdida3 + velocity_head + hc1 + hc2;
-        // Mostrar alerta
-        alert(`Velocidades: v1 = ${velocidades.v1.toFixed(2)}, v2 = ${velocidades.v2.toFixed(2)}, v3 = ${velocidades.v3.toFixed(2)},viscoidad= ${viscosidad_aprox}
-        ,K1 = ${k1_final}, K2 = ${k2_final}, f1= ${f1},Reynolds 1 = ${Reynolds_seccion1}, Reynolds 2 = ${Reynolds_seccion2}, Reynolds 3 ${Reynolds_seccion3}
-        ,f1 = ${f1},f2 = ${f2},f3 = ${f3}, perdida 1 = ${perdida1}, Perdida 2= ${perdida2}, Perdida 3 = ${perdida3}, Pérdidas por contracción 1 = ${hc1}, Pérdidas por contracción 2 = ${hc2},k1 =${k1_final},k2 = ${k2_final}, Diferencia de alturas = ${Za}`);
-    });
+    let hvB = (v3**2)/(2*g);
 
-    // Función velocity
-    function velocity(caudal, diametro1, diametro2, diametro3) {
-        let v1 = caudal*0.00222801 / (((diametro1/12) ** 2) * Math.PI / 4);
-        let v2 = caudal*0.00222801 / (((diametro2/12) ** 2) * Math.PI / 4);
-        let v3 = caudal*0.00222801 / (((diametro3/12) ** 2) * Math.PI / 4);
-        return { v1, v2, v3 };
+    Za_correct = h1 + h2 + h3 + hvB + hc1 + hc2;
+
+    alert(`Velocidades:\nv1=${v1.toFixed(2)}\nv2=${v2.toFixed(2)}\nv3=${v3.toFixed(2)}
+Viscosidad=${visc}
+K1=${K1}
+K2=${K2}
+f1=${f1}
+f2=${f2}
+f3=${f3}
+Pérdidas rectas: h1=${h1}, h2=${h2}, h3=${h3}
+Pérdidas menores: hc1=${hc1}, hc2=${hc2}
+Za = ${Za_correct}`);
+}
+
+/* -------------------------
+   PROBLEMAS Y CHECKEO
+------------------------- */
+let problems = [
+    { answer: ()=>Za_correct, solution: "Suma de pérdidas por tramos rectos, por contracciones súbitas y la carga de velocidad en B." }, 
+    { answer: ()=>21.92,     solution: "zA - zB = 21.92 ft." },
+    { answer: ()=>8,         solution: "h_total = 8 m" }
+];
+
+/* -------------------------
+   Navegación
+------------------------- */
+let current = 0;    
+const exerciseEls = document.querySelectorAll('.exercise');
+
+function showExercise(i){
+    exerciseEls.forEach((el,idx)=>el.classList.toggle("active", idx===i));
+    current = i;
+}
+
+document.getElementById("prev").onclick = () => showExercise(Math.max(0,current-1));
+document.getElementById("next").onclick = () => showExercise(Math.min(exerciseEls.length-1,current+1));
+
+document.getElementById("reset").onclick = () => {
+    for(let i=0;i<exerciseEls.length;i++){
+        document.getElementById("ans-"+i).value="";
+        document.getElementById("fb-"+i).textContent="";
+        document.getElementById("sol-"+i).style.display="none";
+        let r = document.getElementById("retro-"+i);
+        if(r) r.style.display="none";
     }
-    
-    // Función subindice inferior generalizada para cualquier lista y valor
-    function subindice_inferior(lista, valor) {
+    showExercise(0);
+};
 
-    // 1. Si valor es menor que el primer elemento
-    if (valor < lista[0]) return 0;
+/* -------------------------
+   Eventos de botones
+------------------------- */
+document.getElementById("exercises").addEventListener("click", e=>{
+    let action = e.target.getAttribute("data-action");
+    if (!action) return;
 
-    // 2. Recorrer lista normalmente
-    for (let i = 0; i < lista.length; i++) {
-        if (lista[i] > valor) {
-            return i - 1;
-        }
-        if (lista[i] === valor) {
-            return i;
-        }
+    let section = e.target.closest(".exercise");
+    let idx = Number(section.dataset.index);
+
+    if (idx === 0 && action === "check") {
+        ejecutarEj1();  // 🔵 el botón azul ejecuta cálculo del Ej1
     }
 
-    // 3. Si valor es mayor que TODOS los elementos
-    return lista.length - 1;
-    }
-
-    // Función subindice superior generalizada para cualquier lista y valor
-    function subindice_superior(lista, valor) {
-
-    if (valor <= lista[0]) return 0;
-
-    for (let i = 0; i < lista.length; i++) {
-        if (lista[i] >= valor) {
-            return i;
-        }
-    }
-
-    return lista.length - 1;
-    }
-    // Función de interpolación general
-
-    function interpolacion(x0,y0,x1,y1, x){
-        if (y0 != y1){
-            let y = y0 + ((y1-y0)/(x1-x0))*(x-x0)
-            return y;
-        }
-            else{
-                return y0;
-            }
-    }
-    // función de factor de fricción
-    function factorf(diametro,Reynolds){
-        if (Reynolds < 2000){
-            let f = 64/Reynolds;
-            return f;
-        }
-            else{
-                let f = 0.25/((Math.log10(rug_HDR_IN/(3.7*(diametro/12))+5.74/(Reynolds**0.9)))**2);     // Ecuación de Swamee-Jean
-
-                return f;
-            }
-
-    }
-    // Función pérdidas por tramos rectos
-    function losses(f, L, v, d){
-        let losses = f * (L/(d/12)) * (v**2 / (2*g));       // Ecuación de Darcy- Weisbach
-        return losses;
-    }
-    function contractionlosses(k,v){
-        hc = k* (v**2)/(2*g);
-        return hc;
-    }
+    if (action === "check") checkAnswer(idx);
+    if (action === "show-solution") showSolution(idx);
 });
 
-    const problems = [
-      { answer: 5, solution: 'Suma simple: h_total = h1 + h2 = 2 + 3 = 5 m' },
-      { answer: 21.92, solution: 'zA - zB = Σhf + Σhm + (VB² - VA²)/2g = 21.92 ft' },
-      { answer: 8, solution: 'h_total = 4 + 4 = 8 m' }
-    ];
+function normalizeNumberInput(v){
+    return Number(String(v).trim().replace(",","."));
+}
 
-    let current = 0;
-    const exerciseEls = document.querySelectorAll('.exercise');
+function checkAnswer(i){
+    let input = document.getElementById("ans-"+i);
+    let fb = document.getElementById("fb-"+i);
+    let sol = document.getElementById("sol-"+i);
 
-    function showExercise(index) {
-      exerciseEls.forEach((el,i) => el.classList.toggle('active', i === index));
-      current = index;
-    }
+    let val = normalizeNumberInput(input.value);
 
-    document.getElementById('prev').addEventListener('click', () => showExercise(Math.max(0, current - 1)));
-    document.getElementById('next').addEventListener('click', () => showExercise(Math.min(exerciseEls.length - 1, current + 1)));
+    let correct = (typeof problems[i].answer === "function")
+                    ? problems[i].answer()
+                    : problems[i].answer;
 
-    document.getElementById('reset').addEventListener('click', () => {
-      exerciseEls.forEach((el,i) => {
-        document.getElementById('ans-' + i).value = '';
-        document.getElementById('fb-' + i).textContent = '';
-        document.getElementById('fb-' + i).className = 'feedback';
-        document.getElementById('sol-' + i).style.display = 'none';
-        const retro = document.getElementById('retro-' + i);
-        if (retro) retro.style.display = 'none';
-      });
-      showExercise(0);
-    });
-
-    document.getElementById('exercises').addEventListener('click', (e) => {
-      const action = e.target.getAttribute('data-action');
-      if (!action) return;
-      const section = e.target.closest('.exercise');
-      const idx = Number(section.getAttribute('data-index'));
-      if (action === 'check') checkAnswer(idx);
-      else if (action === 'show-solution') showSolution(idx);
-    });
-
-    function normalizeNumberInput(val) {
-      if (val === null || val === undefined) return NaN;
-      return Number(String(val).trim().replace(',', '.'));
-    }
-
-    function checkAnswer(i) {
-      const input = document.getElementById('ans-' + i);
-      const fb = document.getElementById('fb-' + i);
-      const sol = document.getElementById('sol-' + i);
-      const retro = document.getElementById('retro-' + i);
-      const userVal = normalizeNumberInput(input.value);
-      const correct = problems[i].answer;
-
-      if (Number.isNaN(userVal)) {
-        fb.textContent = 'Por favor ingresa un número válido.';
-        fb.className = 'feedback error';
-        sol.style.display = 'none';
-        if (retro) retro.style.display = 'none';
+    if (isNaN(val)){
+        fb.textContent="Número inválido.";
+        fb.className="feedback error";
         return;
-      }
-
-      const tol = 0.05; // tolerancia
-      if (Math.abs(userVal - correct) <= tol) {
-        fb.textContent = '✅ Correcto';
-        fb.className = 'feedback success';
-        sol.style.display = 'none';
-        if (i === 1 && retro) {
-          retro.style.display = 'block';
-          retro.innerHTML = `
-            <h3>Retroalimentación</h3>
-            <p>Aplicando la ecuación de energía entre los puntos <strong>A</strong> y <strong>B</strong>:</p>
-            <p style="margin-left:20px;">z<sub>A</sub> - z<sub>B</sub> = Σh<sub>f</sub> + Σh<sub>m</sub> + (V<sub>B</sub><sup>2</sup> - V<sub>A</sub><sup>2</sup>)/2g</p>
-            <p>Donde:</p>
-            <ul>
-              <li>h<sub>f</sub>: pérdidas por fricción (Darcy–Weisbach)</li>
-              <li>h<sub>m</sub>: pérdidas menores (entrada y contracciones)</li>
-            </ul>
-            <p>Datos: Q = 240.8 gal/min = 0.538 ft³/s, D₁ = 3", D₂ = 4", D₃ = 6", L₁ = 65 ft, L₂ = 110 ft, L₃ = 185 ft, ε = 0.00085 ft</p>
-            <p>Velocidades: V₁ = 10.97 ft/s, V₂ = 6.18 ft/s, V₃ = 2.74 ft/s</p>
-            <p>Coeficientes de fricción: f₁ = 0.0209, f₂ = 0.0216, f₃ = 0.0227</p>
-            <p>Pérdidas por fricción: h<sub>f1</sub> = 2.55 ft, h<sub>f2</sub> = 2.52 ft, h<sub>f3</sub> = 2.31 ft</p>
-            <p>Pérdidas menores: 0.94 + 0.15 + 2.18 = 3.27 ft</p>
-            <p>Total: z<sub>A</sub> - z<sub>B</sub> = 21.92 ft</p>
-            <p style="font-weight:bold; color:#1e3a8a;">Por lo tanto, la diferencia de altura entre los puntos A y B es de 21.92 ft.</p>
-          `;
-        }
-      } else {
-        fb.textContent = '❌ Incorrecto';
-        fb.className = 'feedback error';
-        sol.textContent = problems[i].solution + ' (Respuesta correcta: ' + correct + ')';
-        sol.style.display = 'block';
-        if (retro) retro.style.display = 'none';
-      }
     }
 
-    function showSolution(i) {
-      const sol = document.getElementById('sol-' + i);
-      sol.textContent = problems[i].solution + ' (Respuesta correcta: ' + problems[i].answer + ')';
-      sol.style.display = 'block';
-      const fb = document.getElementById('fb-' + i);
-      fb.textContent = 'Se mostró la solución.';
-      fb.className = 'feedback';
-    }
+    let errorPermitido = 0.05; // 5%
 
-    problems.forEach((p, i) => {
-      const sol = document.getElementById('sol-' + i);
-      sol.textContent = '';
-    });</script>
-    
+    if (Math.abs(val - correct) <= Math.abs(correct)*errorPermitido){
+        fb.textContent="Correcto ✔";
+        fb.className="feedback success";
+        sol.style.display="none";
+    } else {
+        fb.textContent="Incorrecto ✘";
+        fb.className="feedback error";
+        sol.textContent = `Solución: ${correct.toFixed(3)}\n${problems[i].solution}`;
+        sol.style.display="block";
+    }
+}
+function showSolution(i){
+    let sol = document.getElementById("sol-"+i);
+    sol.textContent = problems[i].solution;
+    sol.style.display="block";
+}
+
+</script>
 </body>
 </html>
