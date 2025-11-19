@@ -250,8 +250,15 @@ function subindice_superior(lista, valor){
 }
 
 function interpolacion(x0,y0,x1,y1,x){
-    if (y0 === y1) return y0;
-    return y0 + ((y1-y0)/(x1-x0))*(x-x0);
+    if (x0 == x1){
+        return y0;
+    } 
+
+    if (x0 != x1){
+        let int = y0 + ((y1-y0)/(x1-x0))*(x-x0);
+        return int;
+    }
+    
 }
 
 function factorf(d, Re){
@@ -301,26 +308,33 @@ function ejecutarEj1(){
 
     let r1 = d1/d2;
     let r2 = d2/d3;
-
+    // limitar la relacion entre los diametros. Esto es: si r1> 10{ r1 = 10} igualmente con r2
+    if (r1 > 10){
+        r1 = 10;
+    }
+    if (r2 > 10){{
+        r2 = 10;
+    }}
     const v1 = velocidades.v1;
     const v2 = velocidades.v2;
     const v3 = velocidades.v3;
+    // K1 //
+    let si_v2 = subindice_inferior(claves_value, v2);   // Subindice inferior velocidad 2
+    let ss_v2 = subindice_superior(claves_value, v2);      // subindice superior velocidad 2
 
-    let si_v2 = subindice_inferior(claves_value, v2);
-    let ss_v2 = subindice_superior(claves_value, v2);
+    let si_rA = subindice_inferior(D1_D2, r1);          // subindice inferior razon de diametros A
+    let ss_rA = subindice_superior(D1_D2, r1);          // Subindice superior razon de diametrs A
 
-    let si_rA = subindice_inferior(D1_D2, r1);
-    let ss_rA = subindice_superior(D1_D2, r1);
+    let K1_i_i = K_contraccion[claves[si_v2]][si_rA];   // K1  inferior izquierdo
+    let K1_s_i = K_contraccion[claves[ss_v2]][ss_rA];   // K1  superior izquierdo
 
-    let K1_i_i = K_contraccion[claves[si_v2]][si_rA];
-    let K1_s_i = K_contraccion[claves[ss_v2]][ss_rA];
+    let K1_i_d = K_contraccion[claves[Math.min(si_v2+1,claves.length-1)]][si_rA];       // K1 inferior derecho
+    let K1_s_d = K_contraccion[claves[Math.min(ss_v2+1,claves.length-1)]][ss_rA];       // k2 superior derecho
 
-    let K1_i_d = K_contraccion[claves[Math.min(si_v2+1,claves.length-1)]][si_rA];
-    let K1_s_d = K_contraccion[claves[Math.min(ss_v2+1,claves.length-1)]][ss_rA];
-
-    let K1_inf = interpolacion(claves_value[si_v2],K1_i_i,claves_value[Math.min(si_v2+1,claves.length-1)],K1_i_d,v2);
-    let K1_sup = interpolacion(claves_value[ss_v2],K1_s_i,claves_value[Math.min(ss_v2+1,claves.length-1)],K1_s_d,v2);
+    let K1_inf = interpolacion(claves_value[si_v2],K1_i_i,claves_value[Math.min(si_v2+1,claves.length-1)],K1_i_d,v2);   // Interpolando
+    let K1_sup = interpolacion(claves_value[ss_v2],K1_s_i,claves_value[Math.min(ss_v2+1,claves.length-1)],K1_s_d,v2);   // Interpolando
     let K1 = interpolacion(D1_D2[si_rA],K1_inf,D1_D2[ss_rA],K1_sup,r1);
+
 
     /* ---- K2 ---- */
     let si_v3 = subindice_inferior(claves_value, v3);
@@ -367,7 +381,7 @@ f2=${f2}
 f3=${f3}
 Pérdidas rectas: h1=${h1}, h2=${h2}, h3=${h3}
 Pérdidas menores: hc1=${hc1}, hc2=${hc2}
-Za = ${Za_correct}`);
+Za = ${Za_correct}, si_rA = ${si_rA}, si_rB = ${si_rB}`);
 }
 
 /* -------------------------
