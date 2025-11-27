@@ -29,9 +29,9 @@
             display: none;
         }
 
-        .exercise.active {
-            display: block;
-        }
+            .exercise.active {
+                display: block;
+            }
 
         .controls {
             margin-top: 12px;
@@ -45,13 +45,13 @@
             font-weight: 600
         }
 
-        .feedback.error {
-            color: #b91c1c
-        }
+            .feedback.error {
+                color: #b91c1c
+            }
 
-        .feedback.success {
-            color: #0f9d58
-        }
+            .feedback.success {
+                color: #0f9d58
+            }
 
         input[type="text"], textarea {
             width: 100%;
@@ -67,15 +67,15 @@
             cursor: pointer
         }
 
-        button.primary {
-            background: #2563eb;
-            color: white
-        }
+            button.primary {
+                background: #2563eb;
+                color: white
+            }
 
-        button.secondary {
-            background: #94a3b8;
-            color: white
-        }
+            button.secondary {
+                background: #94a3b8;
+                color: white
+            }
 
         .solution {
             margin-top: 10px;
@@ -99,10 +99,10 @@
             margin-top: 10px;
         }
 
-        .retroalimentacion h3 {
-            margin-top: 0;
-            color: #1e3a8a
-        }
+            .retroalimentacion h3 {
+                margin-top: 0;
+                color: #1e3a8a
+            }
     </style>
 </head>
 <body>
@@ -115,16 +115,17 @@
             <!-- Ejercicio 1 -->
             <section class="exercise active" data-index="0" id="ex-0">
                 <h2>Ejercicio 1</h2>
-                <p>Para el sistema mostrado en la figura fluye agua a 
-                <input type="number" id="temperature" placeholder="Insertar T" min="32" max="212" style="width: 90px; height: 20px ;font-size: 16px;"> °F 
-                    por una tuberia de hierro ductil revestida cuyos diametros son 
-                    <input type="number" id="diametro_1" placeholder="diametro 1" min="3" max="25" style="width: 90px; height: 20px ;font-size: 16px;"> , 
+                <p>
+                    Para el sistema mostrado en la figura fluye agua a
+                    <input type="number" id="temperature" placeholder="Insertar T" min="32" max="212" style="width: 90px; height: 20px ;font-size: 16px;"> °F
+                    por una tuberia de hierro ductil revestida cuyos diametros son
+                    <input type="number" id="diametro_1" placeholder="diametro 1" min="3" max="25" style="width: 90px; height: 20px ;font-size: 16px;"> ,
                     <input type="number" id="diametro_2" placeholder="diametro 2" min="3" max="25" style="width: 90px; height: 20px ;font-size: 16px;"> y
-                    <input type="number" id="diametro_3" placeholder="diametro 3" min="3" max="25" style="width: 90px; height: 20px ;font-size: 16px;"> pulgadas, con longitud igual a 
+                    <input type="number" id="diametro_3" placeholder="diametro 3" min="3" max="25" style="width: 90px; height: 20px ;font-size: 16px;"> pulgadas, con longitud igual a
                     <input type="number" id="longitud_1" placeholder="longitud 1" min="0" style="width: 90px; height: 20px ;font-size: 16px;">,
                     <input type="number" id="longitud_2" placeholder="longitud 2" min="0" style="width: 90px; height: 20px ;font-size: 16px;">
-                    y 
-                    <input type="number" id="longitud_3" placeholder="longitud 3" min="0" style="width: 90px; height: 20px ;font-size: 16px;"> pies, respectivamente. 
+                    y
+                    <input type="number" id="longitud_3" placeholder="longitud 3" min="0" style="width: 90px; height: 20px ;font-size: 16px;"> pies, respectivamente.
                     Se sabe que el caudal es de <input type="number" id="caudal_ej1" placeholder="caudal" style="width: 90px; height: 20px ;font-size: 16px;"> gal/min. Determine la diferencia de altura entre los puntos A y B. Las contracciones son súbitas.
                 </p>
 
@@ -178,6 +179,29 @@
                 <div class="solution" id="sol-2" style="display:none"></div>
             </section>
 
+            <!-- Ejercicio 4 (nuevo) -->
+            <section class="exercise" data-index="3" id="ex-3">
+                <h2>Ejercicio 4 — Diámetro requerido (Darcy + Colebrook)</h2>
+                <p>
+                    Para un sistema de tubería horizontal se requiere definir su diámetro si la caída máxima de presión entre dos puntos separados <b id="L-span">2000</b> ft es de <b id="dP-span">8</b> psi.
+                    El flujo volumétrico requerido en el sistema es de <b id="Q-span">2.5</b> ft³/s. La tubería debe ser de cobre tipo K. El fluido es agua a 150°F.
+                    (Valores fijos usados: γ=61.2 lb/ft³, ν=4.68e-6 ft²/s, ε=5e-6 ft)
+                </p>
+
+                <label for="ans-3">Ingrese su resultado (in):</label>
+                <input type="text" id="ans-3" placeholder="Diámetro (in)">
+
+                <div class="controls" style="margin-top:10px;">
+                    <!-- Al presionar 'Comprobar' en este ejercicio primero se calculará (ejecutarEj4) y luego se validará -->
+                    <button class="primary" data-action="check">Comprobar</button>
+                    <button class="secondary" data-action="show-solution">Mostrar solución</button>
+                    <button class="secondary" id="nuevo-4">Generar otro ejercicio</button>
+                </div>
+
+                <div class="feedback" id="fb-3" aria-live="polite"></div>
+                <div class="solution" id="sol-3" style="display:none; white-space: pre-wrap;"></div>
+            </section>
+
         </div>
 
         <div class="nav">
@@ -189,7 +213,7 @@
 
     </div>
 
-<script>
+    <script>
 /* -------------------------
    TODAS las CONSTANTES
 ------------------------- */
@@ -222,6 +246,7 @@ const claves = ["2_pies_s","4_pies_s","6_pies_s","8_pies_s","10_pies_s","15_pies
 const claves_value = [2,4,6,8,10,15,20,30,40];
 const D1_D2 = [1.0,1.1,1.2,1.4,1.6,1.8,2.0,2.2,2.5,3.0,4.0,5.0,10.0];
 let Za_correct = null;
+
 /* -------------------------
    Funciones auxiliares
 ------------------------- */
@@ -252,13 +277,13 @@ function subindice_superior(lista, valor){
 function interpolacion(x0,y0,x1,y1,x){
     if (x0 == x1){
         return y0;
-    } 
+    }
 
     if (x0 != x1){
         let int = y0 + ((y1-y0)/(x1-x0))*(x-x0);
         return int;
     }
-    
+
 }
 
 function factorf(d, Re){
@@ -275,7 +300,7 @@ function contractionlosses(k, v){
 }
 
 /* ---------------------------------------------------------
-  FUNCIÓN EJECUTAR EJERCICIO 1 
+  FUNCIÓN EJECUTAR EJERCICIO 1
 --------------------------------------------------------- */
 function ejecutarEj1(){
     let Q_ej1 = parseFloat(document.getElementById('caudal_ej1').value);
@@ -385,18 +410,131 @@ Za = ${Za_correct}, si_rA = ${si_rA}, si_rB = ${si_rB}`);
 }
 
 /* -------------------------
+   EJERCICIO 4: Darcy + Colebrook (aleatorio)
+   - genera Q, dP, L en los rangos pedidos
+   - itera para obtener D y f
+   - selecciona diámetro comercial (tabla usada previamente)
+   - actualiza problems[3] para que checkAnswer lo use
+------------------------- */
+
+let diaComercial_in = null; // valor a comparar en pulgadas (se actualizará)
+let ultimaSolucionText = ""; // texto detallado de la solución (para mostrar)
+
+function aleatorio(min, max){
+    return Math.random()*(max-min)+min;
+}
+
+function ejecutarEj4(){
+    // Rangos pedidos
+    let Q = parseFloat(aleatorio(1.5,3).toFixed(4)); // ft3/s
+    let deltaP = parseFloat(aleatorio(8,15).toFixed(3)); // psi
+    let L = parseFloat(aleatorio(1500,3000).toFixed(0)); // ft
+
+    // mostrar en el enunciado los valores actuales
+    document.getElementById('Q-span').textContent = Q;
+    document.getElementById('dP-span').textContent = deltaP;
+    document.getElementById('L-span').textContent = L;
+
+    // Propiedades fijas
+    const gamma = 61.2; // lb/ft3
+    const nu = 4.68e-6; // ft2/s
+    const eps = 5e-6; // ft
+    const g_local = 32.17; // ft/s2
+
+    // convertir diferencia de presion a altura (ft)
+    const h = (deltaP * 144) / gamma; // ft
+
+    // Iteración: usamos esquema similar al que describiste
+    // Partimos con f inicial y D inicial (ft)
+    let f = 0.02;
+    let D = 0.6; // ft
+    let D_new = D;
+    let iter = 0;
+
+    while(iter < 200){
+        // ecuación (1): D = [ f * (8 L Q^2) / (pi^2 g h) ]^(1/5)
+        D_new = Math.pow( f * (8 * L * Q * Q) / (Math.PI*Math.PI * g_local * h), 1/5 );
+
+        // Reynolds (usando Re = 4Q/(pi D nu))
+        let Re = (4 * Q) / (Math.PI * D_new * nu);
+
+        // Actualizar f usando aproximación implícita de Colebrook (punto fijo)
+        // 1/sqrt(f) = -2 log10( eps/(3.7D) + 2.51/(Re sqrt(f)) )
+        let rhs = -2 * Math.log10( eps/(3.7*D_new) + 2.51/(Re * Math.sqrt(f)) );
+        let f_new = 1.0 / (rhs * rhs);
+
+        // relajación para estabilidad
+        f = 0.6*f + 0.4*f_new;
+
+        // chequeo de convergencia
+        if (Math.abs(D_new - D) < 1e-7 && Math.abs(f_new - f) < 1e-8) break;
+
+        D = D_new;
+        iter++;
+    }
+
+    // resultado final
+    let D_ft = D_new;
+    let D_in = D_ft * 12;
+
+    // Tabla comercial utilizada (la misma que usamos antes)
+    const tabla_comercial_in = [0.5,0.75,1,1.25,1.5,2,2.5,3,4,6,8,10,12];
+
+    // elegir el menor diámetro comercial >= D_in (por exceso)
+    diaComercial_in = tabla_comercial_in.find(d => d >= D_in) || tabla_comercial_in[tabla_comercial_in.length-1];
+
+    // preparar texto de solución detallada
+    ultimaSolucionText =
+`Datos generados:
+  Q = ${Q.toFixed(4)} ft³/s
+  ΔP = ${deltaP.toFixed(3)} psi
+  L = ${L} ft
+
+Propiedades:
+  γ = ${gamma} lb/ft³
+  ν = ${nu} ft²/s
+  ε = ${eps} ft
+
+Iteración Darcy–Colebrook (convergencia en ${iter} iteraciones):
+  Diámetro calculado = ${D_ft.toFixed(6)} ft = ${D_in.toFixed(4)} in
+  Factor de fricción f ≈ ${f.toFixed(6)}
+  Reynolds aproximado (última iteración) ≈ ${( (4*Q)/(Math.PI*D_ft*nu) ).toExponential(3)}
+
+Diámetro comercial seleccionado (por exceso) = ${diaComercial_in} in
+`;
+
+    // Actualizar objeto problems[3] para que checkAnswer lo use
+    if (problems.length < 4){
+        problems[3] = { answer: ()=>diaComercial_in, solution: ultimaSolucionText };
+    } else {
+        problems[3].answer = ()=>diaComercial_in;
+        problems[3].solution = ultimaSolucionText;
+    }
+
+    // mostrar solución condensada en sol-3 (oculta por defecto; sólo se muestra cuando hay error o Show solution)
+    document.getElementById('sol-3').textContent = ultimaSolucionText;
+    // no forzar display:block aquí para no tapar el input
+    document.getElementById('sol-3').style.display = "none";
+
+    // devolver el valor calculado para uso inmediato (si se desea)
+    return {D_ft, D_in, diaComercial_in, f, ultimaSolucionText};
+}
+
+/* -------------------------
    PROBLEMAS Y CHECKEO
+   (agregamos placeholder en index 3; se actualizará en ejecutarEj4)
 ------------------------- */
 let problems = [
-    { answer: ()=>Za_correct, solution: "Suma de pérdidas por tramos rectos, por contracciones súbitas y la carga de velocidad en B." }, 
+    { answer: ()=>Za_correct, solution: "Suma de pérdidas por tramos rectos, por contracciones súbitas y la carga de velocidad en B." },
     { answer: ()=>21.92,     solution: "zA - zB = 21.92 ft." },
-    { answer: ()=>8,         solution: "h_total = 8 m" }
+    { answer: ()=>8,         solution: "h_total = 8 m" },
+    { answer: ()=>{ return null; }, solution: "Solución del Ejercicio 4 (aún no generada)." }
 ];
 
 /* -------------------------
    Navegación
 ------------------------- */
-let current = 0;    
+let current = 0;
 const exerciseEls = document.querySelectorAll('.exercise');
 
 function showExercise(i){
@@ -409,9 +547,12 @@ document.getElementById("next").onclick = () => showExercise(Math.min(exerciseEl
 
 document.getElementById("reset").onclick = () => {
     for(let i=0;i<exerciseEls.length;i++){
-        document.getElementById("ans-"+i).value="";
-        document.getElementById("fb-"+i).textContent="";
-        document.getElementById("sol-"+i).style.display="none";
+        let ansEl = document.getElementById("ans-"+i);
+        if(ansEl) ansEl.value="";
+        let fbEl = document.getElementById("fb-"+i);
+        if(fbEl) fbEl.textContent="";
+        let solEl = document.getElementById("sol-"+i);
+        if(solEl) solEl.style.display="none";
         let r = document.getElementById("retro-"+i);
         if(r) r.style.display="none";
     }
@@ -419,7 +560,7 @@ document.getElementById("reset").onclick = () => {
 };
 
 /* -------------------------
-   Eventos de botones
+   Eventos de botones (un solo listener)
 ------------------------- */
 document.getElementById("exercises").addEventListener("click", e=>{
     let action = e.target.getAttribute("data-action");
@@ -428,13 +569,38 @@ document.getElementById("exercises").addEventListener("click", e=>{
     let section = e.target.closest(".exercise");
     let idx = Number(section.dataset.index);
 
+    // si es el ejercicio 0 y pulsaron Comprobar, ejecuta su cálculo especial
     if (idx === 0 && action === "check") {
-        ejecutarEj1();  // 🔵 el botón azul ejecuta cálculo del Ej1
+        ejecutarEj1();  // botón azul del Ej1
+        // permitir que luego checkAnswer(0) sea llamado más abajo
     }
 
+    // si es el ejercicio 3 y pulsaron Comprobar, primero generamos/ejecutamos y actualizamos la respuesta correcta
+    if (idx === 3 && action === "check") {
+        ejecutarEj4();
+        // ahora problems[3] fue actualizado con la solución comercial
+    }
+
+    // ahora el comportamiento general
     if (action === "check") checkAnswer(idx);
     if (action === "show-solution") showSolution(idx);
 });
+
+// botón separado para generar otro ejercicio 4 (sin comprobar)
+document.getElementById("nuevo-4").addEventListener("click", function(){
+    ejecutarEj4();
+    // limpiar el input y feedback
+    let ans = document.getElementById("ans-3");
+    if (ans) ans.value = "";
+    let fb = document.getElementById("fb-3");
+    if (fb) { fb.textContent = ""; fb.className = "feedback"; }
+    // mantener la solución oculta
+    document.getElementById('sol-3').style.display = "none";
+});
+
+/* -------------------------
+   Eventos comunes y utilidades
+------------------------- */
 
 function normalizeNumberInput(v){
     return Number(String(v).trim().replace(",","."));
@@ -445,11 +611,22 @@ function checkAnswer(i){
     let fb = document.getElementById("fb-"+i);
     let sol = document.getElementById("sol-"+i);
 
+    // si no existe input (ej. ejercicios sin respuesta escrita) salir
+    if (!input || !fb || !sol){
+        return;
+    }
+
     let val = normalizeNumberInput(input.value);
 
     let correct = (typeof problems[i].answer === "function")
                     ? problems[i].answer()
                     : problems[i].answer;
+
+    if (correct === null || typeof correct === "undefined"){
+        fb.textContent="Aún no hay solución generada para este ejercicio.";
+        fb.className="feedback error";
+        return;
+    }
 
     if (isNaN(val)){
         fb.textContent="Número inválido.";
@@ -466,16 +643,21 @@ function checkAnswer(i){
     } else {
         fb.textContent="Incorrecto ✘";
         fb.className="feedback error";
-        sol.textContent = `Solución: ${correct.toFixed(3)}\n${problems[i].solution}`;
+        sol.textContent = `Solución (valor comercial): ${correct.toFixed(3)} in\n\n${problems[i].solution}`;
         sol.style.display="block";
     }
 }
+
 function showSolution(i){
     let sol = document.getElementById("sol-"+i);
+    if (!sol) return;
     sol.textContent = problems[i].solution;
     sol.style.display="block";
 }
 
-</script>
+// Generar primer ejercicio 4 al cargar (para que problems[3] tenga valor)
+ejecutarEj4();
+
+    </script>
 </body>
 </html>
