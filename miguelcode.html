@@ -255,24 +255,27 @@
     </div>
 
     
-<!-- Firebase -->
 <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
-  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
-  const firebaseConfig = {
+const firebaseConfig = {
     apiKey: "AIzaSyBCyushdUDl0mIBxCl50mkbRpz-FfZyqU4",
     authDomain: "fluidmechanicsproject.firebaseapp.com",
     projectId: "fluidmechanicsproject",
     storageBucket: "fluidmechanicsproject.firebasestorage.app",
     messagingSenderId: "969525156162",
     appId: "1:969525156162:web:bae9cceaf79e88ac8d50db"
-  };
+};
 
-  const app = initializeApp(firebaseConfig);
-  window.db = getFirestore(app);
-  window.addDoc = addDoc;
-  window.collection = collection;
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+window.db = db;
+window.addDoc = addDoc;
+window.collection = collection;
+
+/* --- AQUÍ SIGUE TU CÓDIGO ORIGINAL --- */
 
 /* -------------------------
    TODAS las CONSTANTES
@@ -782,7 +785,6 @@ document.getElementById("nuevo-4").addEventListener("click", function(){
 function normalizeNumberInput(v){
     return Number(String(v).trim().replace(",","."));
 }
-
 
 function checkAnswer(i){
     let input = document.getElementById("ans-"+i);
