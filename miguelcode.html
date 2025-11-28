@@ -119,8 +119,17 @@
     appId: "1:969525156162:web:bae9cceaf79e88ac8d50db"
   };
 
+  // Inicializar Firebase
   const app = initializeApp(firebaseConfig);
-  export const db = getFirestore(app);
+  const db = getFirestore(app);
+
+  // --- PARTE IMPORTANTE: HACERLAS GLOBALES ---
+  // Asignamos las funciones al objeto window para que el otro script las vea
+  window.db = db;
+  window.collection = collection;
+  window.addDoc = addDoc;
+  
+  console.log("Firebase cargado y funciones expuestas globalmente.");
 </script>
 
 <body>
