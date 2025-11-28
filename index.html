@@ -3,19 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Fluid Mechanics Project</title>
-    <script src="script.js"> </script>
-    
+    <title>Explicacion-tuberías en serie</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+</script>
+<style>
+    body{
+        font-family: 'Times New Roman', Times, serif;
+        margin: 2.5%;
+        padding: 0%;
+        background-color:rgb(255, 254, 253);
+        text-align: justify;
+    }
+    .banner{
+        color: aliceblue;
+        text-align: center;
+        padding: 15px;
+    }
+    h1{
+        color:  rgb(5, 24, 39);
+        text-align: center;
+        font-family:fantasy;
+    }
+    h2{
+        font-family: 'Times New Roman', Times, serif;
+        margin: 0%;
+        padding: 0%;
+        background-color:rgb(213, 223, 235);
+        text-align: justify;
+        font-size: larger;
+        float: left;
+    }
+    h3{
+        font-family: 'Times New Roman', Times, serif;
+        margin: 0%;
+        padding: 0%;
+        background-color: rgb(213, 223, 235);
+        text-align: justify;
+        font-size: larger;
+        float: left;
+    }
+     h4{
+        font-family: 'Times New Roman', Times, serif;
+        margin: 0%;
+        padding: 0%;
+        background-color:rgb(213, 223, 235);
+        text-align: justify;
+        font-size: medium;
+        float: left;
+    }
+    p{
+        text-align: justify;
+    }
+    #caja1{
+        border: 2px solid rgb(37, 115, 179);
+        padding: 10px;
+        margin: 10px;
+        width: 250px;
+        height: 285px;
+        background-color: rgb(141, 184, 235);
+        float: left;
+    }
+    #caja2{
+        border: 2px solid rgb(37, 115, 179);
+        padding: 10px;
+        margin: 10px;
+        width: 250px;
+        height: 285px;
+        background-color: rgb(141, 184, 235);
+        float: left;
+    }
+    </style>
 </head>
-
 <body>
-    <header>
-    <h1>Sistema de tuberias en serie</h1>
-    <p>Página principal. Seleccione a donde redirigir   .</p>
-</header
-    <button onclick="clicker()" id="clicker">
-        click me
-    </button>   
-    <a href="miguelcode.html">test by Miguel</a>
+    <h1>¿Qué son las tuberías en serie?</h1>
+    <div id="caja1">
+        <p><strong>Formulas que te pueden ayudar:</strong></p>
+        <p>Número de Reynolds</p>
+        <p>\[Re = \frac{\vec{v} d}{\vartheta}\]</p>
+        <p>Factor de fricción para flujo laminar</p>
+        <p>\[f = \frac{64}{Re}\]</p>
+        <p>Ecuación de Darcy-Weisbach</p>
+        <p>\[h_f = f \frac{L}{d} \frac{\vec{v}^2}{2g}\]</p>
+    </div>
+    <div id="caja2">
+        <p>Ecuación de continuidad</p>
+        <p>\[Q = A \vec{v}\]</p>
+        <p>Relación entre caudal y velocidad</p>
+        <p>\[Q = \frac{\pi d^2}{4} \vec{v}\]</p>
+        <p>Factor de fricción para flujo turbulento</p>
+        <p>\[\frac{1}{\sqrt{f}}=-2\log_{10}\left(\frac{Ru}{3.7}+\frac{2.51}{Re \sqrt{f}}\right)\]</p>
+    </div>
+    <h2>
+       Definición: 
+    </h2>
+    <p> Las tuberías en serie son una configuración de tuberías conectadas una tras otra en una sola línea, de manera que el fluido sigue una trayectoria continua a través de ellas. La característica principal es que el caudal de fluido es constante en toda la cadena, aunque los diámetros o las rugosidades de las tuberías individuales puedan variar. La pérdida total de carga en el sistema es la suma de las pérdidas por fricción y de las pérdidas menores (por accesorios) en cada tramo.</p>
+    <h3>
+        Características clave: 
+    </h3>
+    <p>
+        Trayectoria única: El fluido no se divide; fluye a través de cada tubería en secuencia, una después de la otra.
+    </p>
+    <p>Caudal constante: El caudal (\(Q\)) que pasa por cada tubería individual del sistema es el mismo.</p>
+    <p>Pérdida de carga total: La pérdida de energía total es la suma de las pérdidas en cada sección: \(h_{L}\) (total) \(=h_{L1}+h_{L2}+h_{L3}+...\).</p>
+    <p>Diferencias: Las tuberías en serie pueden tener longitudes, diámetros y rugosidades diferentes. </p>
+    <h4>
+        Ejercicio de ejemplo:
+    </h4>
+    <p>Calcular la pérdida de carga total en un sistema de tuberías en serie compuesto por tres tramos con las siguientes características:</p>
+    <ul>
+        <li>Tubería 1: Longitud \(L_1 = 50 \, m\), Diámetro \(d_1 = 0.1 \, m\), Velocidad \(v_1 = 2 \, m/s\)</li>
+        <li>Tubería 2: Longitud \(L_2 = 30 \, m\), Diámetro \(d_2 = 0.08 \, m\), Velocidad \(v_2 = 2.5 \, m/s\)</li>
+        <li>Tubería 3: Longitud \(L_3 = 20 \, m\), Diámetro \(d_3 = 0.05 \, m\), Velocidad \(v_3 = 3 \, m/s\)</li>
+    </ul>
+    <p><strong>Asumir:</strong> \(g = 9.81 \, m/s^2\), viscosidad cinemática \(\nu = 1.0 \times 10^{-6} \, m^2/s\), rugosidad absoluta \(\epsilon = 0.0045 \, mm\) (acero comercial)</p>
+    
+    <h4>Procedimiento y Solución:</h4>
+    
+    <p><strong>Paso 1: Calcular el Número de Reynolds para cada tubería</strong></p>
+    <p>\[Re = \frac{v \cdot d}{\nu}\]</p>
+    
+    <p>Para la Tubería 1:</p>
+    <p>\[Re_1 = \frac{2 \times 0.1}{1.0 \times 10^{-6}} = \frac{0.2}{1.0 \times 10^{-6}} = 200,000 \, \text{(Turbulento)}\]</p>
+    
+    <p>Para la Tubería 2:</p>
+    <p>\[Re_2 = \frac{2.5 \times 0.08}{1.0 \times 10^{-6}} = \frac{0.2}{1.0 \times 10^{-6}} = 200,000 \, \text{(Turbulento)}\]</p>
+    
+    <p>Para la Tubería 3:</p>
+    <p>\[Re_3 = \frac{3 \times 0.05}{1.0 \times 10^{-6}} = \frac{0.15}{1.0 \times 10^{-6}} = 150,000 \, \text{(Turbulento)}\]</p>
+    
+    <p><strong>Paso 2: Calcular la rugosidad relativa \(\frac{\epsilon}{d}\) para cada tubería</strong></p>
+    
+    <p>Para la Tubería 1:</p>
+    <p>\[\frac{\epsilon}{d_1} = \frac{0.0045 \times 10^{-3}}{0.1} = 0.000045\]</p>
+    
+    <p>Para la Tubería 2:</p>
+    <p>\[\frac{\epsilon}{d_2} = \frac{0.0045 \times 10^{-3}}{0.08} = 0.0000562\]</p>
+    
+    <p>Para la Tubería 3:</p>
+    <p>\[\frac{\epsilon}{d_3} = \frac{0.0045 \times 10^{-3}}{0.05} = 0.00009\]</p>
+    
+    <p><strong>Paso 3: Obtener el factor de fricción usando el Diagrama de Moody o la ecuación de Colebrook-White</strong></p>
+    
+    <p>Usando la ecuación de Colebrook-White (iteración):</p>
+    <p>\[\frac{1}{\sqrt{f}} = -2 \log_{10}\left(\frac{\epsilon/d}{3.7} + \frac{2.51}{Re\sqrt{f}}\right)\]</p>
+    
+    <p>Resolviendo iterativamente:</p>
+    <p>\(f_1 \approx 0.0125\), \(f_2 \approx 0.0128\), \(f_3 \approx 0.0132\)</p>
+    
+    <p><strong>Paso 4: Calcular la pérdida de carga en cada tubería usando Darcy-Weisbach</strong></p>
+    <p>\[h_f = f \frac{L}{d} \frac{v^2}{2g}\]</p>
+    
+    <p>Para la Tubería 1:</p>
+    <p>\[h_{f1} = 0.0125 \times \frac{50}{0.1} \times \frac{2^2}{2 \times 9.81} = 0.0125 \times 500 \times 0.204 = 1.275 \, m\]</p>
+    
+    <p>Para la Tubería 2:</p>
+    <p>\[h_{f2} = 0.0128 \times \frac{30}{0.08} \times \frac{2.5^2}{2 \times 9.81} = 0.0128 \times 375 \times 0.318 = 1.528 \, m\]</p>
+    
+    <p>Para la Tubería 3:</p>
+    <p>\[h_{f3} = 0.0132 \times \frac{20}{0.05} \times \frac{3^2}{2 \times 9.81} = 0.0132 \times 400 \times 0.459 = 2.423 \, m\]</p>
+    
+    <p><strong>Paso 5: Calcular la pérdida de carga total</strong></p>
+    <p>\[h_{L(total)} = h_{f1} + h_{f2} + h_{f3} = 1.275 + 1.528 + 2.423 = 5.226 \, m\]</p>
+    
+    <p><strong>Respuesta Final: La pérdida de carga total en el sistema es de aproximadamente 5.23 m</strong></p>
+    <h4>¿Quieres poner a prueba tus saberes?</h4>
+    <p> ¡Toca el botón para seguir practicando!</p>
+    <a href="miguelcode.html" style="display: inline-block; padding: 12px 24px; background-color: #0066cc; color: white; text-decoration: none; border-radius: 5px; font-weight: bold; margin-top: 10px;">¡Resuelve ejercicios!</a>
 </body>
-</html>
+</html> 
