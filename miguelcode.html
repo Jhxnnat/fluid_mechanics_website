@@ -106,22 +106,7 @@
             }
     </style>
 </head>
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
-  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyBCyushdUDl0mIBxCl50mkbRpz-FfZyqU4",
-    authDomain: "fluidmechanicsproject.firebaseapp.com",
-    projectId: "fluidmechanicsproject",
-    storageBucket: "fluidmechanicsproject.firebasestorage.app",
-    messagingSenderId: "969525156162",
-    appId: "1:969525156162:web:bae9cceaf79e88ac8d50db"
-  };
-
-  const app = initializeApp(firebaseConfig);
-  export const db = getFirestore(app);
-</script>
 
 <body>
 <label><b>Nombre del estudiante:</b></label>
@@ -275,8 +260,25 @@
         </div>
 
     </div>
+<!--FIREBASE-->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+  import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js";
 
-    <script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyBCyushdUDl0mIBxCl50mkbRpz-FfZyqU4",
+    authDomain: "fluidmechanicsproject.firebaseapp.com",
+    projectId: "fluidmechanicsproject",
+    storageBucket: "fluidmechanicsproject.firebasestorage.app",
+    messagingSenderId: "969525156162",
+    appId: "1:969525156162:web:bae9cceaf79e88ac8d50db"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  export const db = getFirestore(app);
+</script>
+
+<script type="module">
 /* -------------------------
    TODAS las CONSTANTES
 ------------------------- */
